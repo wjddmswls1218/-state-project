@@ -1,5 +1,11 @@
 import React from "react";
 import Button from "./Button";
+import Navigation from "./Layouts/Navigation";
+import Jyr from "./Screens/Jyr";
+import Bhj from "./Screens/Bhj";
+import Kkm from "./Screens/Kkm";
+import { Route } from "react-router-dom";
+import Footer from "./Layouts/Footer";
 
 class App extends React.Component {
   constructor(props){
@@ -13,13 +19,19 @@ class App extends React.Component {
   render() {
     return( 
     <div>
-      <h1>{this.state.changeValue}</h1>
-      <Button name={`INCREMENT`} action={this._increment}
-      />
+      <Route path="/" component={Navigation} />
 
-      <Button name={`DECREMENT`} action={this._decrement}
-      />
+      <Route exact path="/jyr" component={Jyr} />
+      <Route exact path="/bhj" component={Bhj} />
+      <Route exact path="/kkm" component={Kkm} />
+
+
+
+      <h1>{this.state.changeValue}</h1>
+      <Button name={`INCREMENT`} action={this._increment}/>
+      <Button name={`DECREMENT`} action={this._decrement}/>
         
+      <Route path="/" component={Footer} />
     </div>
     );
   }
